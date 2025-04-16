@@ -10,7 +10,7 @@ return [
         'theme_color' => '#b2e620',
         'display' => 'standalone',
         'orientation'=> 'any',
-        'status_bar'=> 'black',
+        'status_bar'=> '#b2e620',
         'icons' => [
             '72x72' => [
                 'path' => '/images/icons/icon-72x72.png',
