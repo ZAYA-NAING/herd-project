@@ -10,8 +10,6 @@ use Livewire\WithPagination;
 new class extends Component {
     use WithPagination;
 
-    public $products;
-
     public $search = '';
     public $perPage = 12;
 
@@ -20,35 +18,27 @@ new class extends Component {
         $this->resetPage();
     }
 
-    public function mount()
+    public function with(): array
     {
-        $this->products = Product::all();
+        return [
+            'products' => Product::paginate(100),
+        ];
     }
-
-    // Computed property for products
-    // public function products()
-    // {
-    //     $this->products = Product::query()
-    //         ->when($this->search, function ($query) {
-    //             return $query->where('name', 'like', '%' . $this->search . '%')->orWhere('description', 'like', '%' . $this->search . '%');
-    //         })
-    //         ->paginate($this->perPage);
-    // }
 }; ?>
 
 <section class="w-full">
     @include('partials.products-heading')
-
+    {{-- @dd($products[0]); --}}
     <x-products.layout :heading="__('Grid')" :subheading="__('Managament and information of our products')">
         <div class="my-6 w-full space-y-6">
             <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
-                <div class="grid auto-rows-min gap-4 grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
-                    @foreach ($this->products as $item)
+                <div class="grid auto-rows-min gap-4 grid-cols-1 md:grid-cols-3">
+                    @foreach ($products as $item)
                         <x-item-grid :item="$item"/>
                     @endforeach
                 </div>
-
             </div>
         </div>
+        <livewire:products.create-product-form />
     </x-products.layout>
 </section>

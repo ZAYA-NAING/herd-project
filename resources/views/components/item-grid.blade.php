@@ -9,7 +9,6 @@
                     {{ $item->initials() }}
                 </span>
             </span>
-
         </div>
         <div class="flex justify-between mt-2">
             <div class="flex items-center gap-1 text-left text-sm">
@@ -64,6 +63,6 @@
                 <span class="truncate font-semibold">{{ $item->name ?? __('Title') }}</span>
                 <span class="truncate text-xs">{{ $item->description ?? __('Description') }}</span>
             </div>
-            </div>
         </div>
     </div>
+</div>

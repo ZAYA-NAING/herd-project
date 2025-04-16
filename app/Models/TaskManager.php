@@ -6,26 +6,24 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class Product extends Model
+
+class TaskManager extends Model
 {
-    /** @use HasFactory<\Database\Factories\ProductFactory> */
-    use HasFactory;
+   /** @use HasFactory<\Database\Factories\TaskManagerFactory> */
+   use HasFactory;
+
+   /**
+    * The attributes that are mass assignable.
+    *
+    * @var list<string>
+    */
+   protected $fillable = [
+       'name',
+       'description',
+   ];
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
-    protected $fillable = [
-        'name',
-        'description',
-        'price',
-        'image',
-        'stock',
-    ];
-
-    /**
-     * Get the product's initials
+     * Get the task's initials
      */
     public function initials(int $count = 2): string
     {
