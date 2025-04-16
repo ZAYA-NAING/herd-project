@@ -4,7 +4,7 @@ return [
     'name' => 'Hero',
     'manifest' => [
         'name' => env('APP_NAME', 'Hero'),
-        'short_name' => 'HA',
+        'short_name' => 'HERO',
         'start_url' => '/',
         'background_color' => '#ffffff',
         'theme_color' => '#000000',
@@ -59,8 +59,8 @@ return [
         ],
         'shortcuts' => [
             [
-                'name' => 'Hero Application',
-                'description' => 'Installed and enjoying our hero application.',
+                'name' => 'HERO Application',
+                'description' => 'Installed and enjoying our HERO application.',
                 'url' => '/shortcutlink1',
                 'icons' => [
                     "src" => "/images/icons/icon-72x72.png",
